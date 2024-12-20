@@ -1,0 +1,34 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <button mat-icon-button (click)="sidenav.toggle();">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <h1>Kreative Solutions</h1>
+    <span class="example-spacer"></span>
+  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>share</mat-icon>
+  </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav opened mode="side" [style.width]="'200px'">
+    <mat-nav-list>
+      <!-- <a mat-list-item>Home</a>
+      <a mat-list-item>Partners</a> -->
+      @for(item of menuItems;track $index){
+        <a mat-list-item [routerLink]="item.route">
+          <mat-icon matListItemIcon>{{item.icon}}</mat-icon>
+          <span>{{item.label}}</span>
+        </a>
+      }
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <router-outlet />
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+

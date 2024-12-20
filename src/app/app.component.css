@@ -1,0 +1,10 @@
+.mat-sidenav-container{
+    height: 89vh;
+}
+.mat-sidenav-content{
+    padding: 20px;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+.mat-toolbar-row {background-color:#d6dbdf ;}
