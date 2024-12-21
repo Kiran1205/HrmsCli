@@ -1,5 +1,5 @@
-.mat-sidenav-container{
-    height: 89vh;
+mat-sidenav-container {
+  height: calc(100vh - 65px);
 }
 .mat-sidenav-content{
     padding: 20px;
@@ -8,3 +8,7 @@
   flex: 1 1 auto;
 }
 .mat-toolbar-row {background-color:#d6dbdf ;}
+
+mat-sidenav {
+  width: 250px !important;
+}
