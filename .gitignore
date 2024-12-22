@@ -11,6 +11,9 @@
 npm-debug.log
 yarn-error.log
 
+#mock-server node_modules
+mock-server/node_modules
+
 # IDEs and editors
 .idea/
 .project
