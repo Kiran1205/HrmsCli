@@ -1,6 +1,11 @@
 import { Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { Form16Component } from './form16/form16.component';
+import { DdousersComponent } from './ddousers/ddousers.component';
+import { ProvisionalsComponent } from './provisionals/provisionals.component';
+import { ItconfigurationsComponent } from './itconfigurations/itconfigurations.component';
+import { TaxcomputeComponent } from './taxcompute/taxcompute.component';
+import { DocumentsComponent } from './documents/documents.component';
 
 
 export const routes: Routes = [
@@ -14,7 +19,27 @@ export const routes: Routes = [
         component: DashboardComponent
     },
     {
+      path :'ddouser',
+      component:DdousersComponent
+    },
+    {
+      path:'provisionals',
+      component:ProvisionalsComponent
+    },
+    {
       path:'form16',
       component: Form16Component
-  }
+    },
+    {
+      path:'itconfiguration',
+      component:ItconfigurationsComponent
+    },
+    {
+      path:'taxcompute',
+      component:TaxcomputeComponent
+    },
+    {
+      path:'documents',
+      component:DocumentsComponent
+    }
 ];

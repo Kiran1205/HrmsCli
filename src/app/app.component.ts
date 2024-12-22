@@ -28,7 +28,7 @@ export class AppComponent {
     {
       icon:'group',
       label:'DDO Users',
-      route:'form16'
+      route:'ddouser'
     },
     {
       icon:'article',
@@ -38,22 +38,22 @@ export class AppComponent {
     {
       icon:'book',
       label:'IT Configuration',
-      route:'training'
+      route:'itconfiguration'
     },
     {
       icon:'event',
       label:'Provisionals',
-      route:'event'
+      route:'provisionals'
     },
     {
       icon:'keyboard',
       label:'Tax Computation',
-      route:'support'
+      route:'taxcompute'
     },
     {
       icon:'folder',
       label:'Documents',
-      route:'support'
+      route:'documents'
     }
   ];
 
