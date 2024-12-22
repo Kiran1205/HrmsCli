@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'angular-sidenav' title`, () => {
+  it(`should have the 'tax-compute' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular-sidenav');
+    expect(app.title).toEqual('tax-compute');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, angular-sidenav');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, tax-compute');
   });
 });

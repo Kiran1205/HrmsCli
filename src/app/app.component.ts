@@ -16,7 +16,7 @@ import { CommonModule } from '@angular/common';
 })
 export class AppComponent {
 
-  title = 'angular-sidenav';
+  title = 'tax-compute';
   isOpened  = false;
 
   menuItems: any[] =[
