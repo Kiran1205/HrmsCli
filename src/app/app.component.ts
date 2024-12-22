@@ -17,7 +17,7 @@ import { CommonModule } from '@angular/common';
 export class AppComponent {
 
   title = 'tax-compute';
-  isOpened  = false;
+  isOpened  = true;
 
   menuItems: any[] =[
     {
@@ -26,23 +26,33 @@ export class AppComponent {
       route:'home'
     },
     {
-      icon:'handshake',
+      icon:'group',
+      label:'DDO Users',
+      route:'form16'
+    },
+    {
+      icon:'article',
       label:'Form16',
       route:'form16'
     },
     {
       icon:'book',
-      label:'Training',
+      label:'IT Configuration',
       route:'training'
     },
     {
       icon:'event',
-      label:'Events',
+      label:'Provisionals',
       route:'event'
     },
     {
-      icon:'help',
-      label:'Support',
+      icon:'keyboard',
+      label:'Tax Computation',
+      route:'support'
+    },
+    {
+      icon:'folder',
+      label:'Documents',
       route:'support'
     }
   ];
