@@ -1,1 +1,112 @@
-<p>ddousers works!</p>
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+  <h2>DDO Users</h2>
+
+  <div>
+    <!-- Add and Edit buttons -->
+    <button mat-fab extended color="primary" (click)="openAddDialog(ddoadddialogTemplate)">Add</button>
+    <!-- <button mat-fab extended color="accent" (click)="editRecord()" style="margin-left: 10px;">Edit</button> -->
+  </div>
+</div>
+<div class="table-container">
+  <mat-table #table [dataSource]="dataSource">
+    <!-- Checkbox Column -->
+    <!-- <ng-container matColumnDef="select">
+      <mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? masterToggle() : null"
+                      [checked]="selection.hasValue() && isAllSelected()"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()">
+        </mat-checkbox>
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <mat-checkbox (click)="$event.stopPropagation()"
+                      (change)="$event ? selection.toggle(row) : null"
+                      [checked]="selection.isSelected(row)">
+        </mat-checkbox>
+      </mat-cell>
+    </ng-container> -->
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-icon-button (click)="editRecord()">
+          <mat-icon>edit</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <mat-header-cell *matHeaderCellDef > No. </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef > Name </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="kgid">
+      <mat-header-cell *matHeaderCellDef> KGID </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.kgid}} </mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="phno">
+      <mat-header-cell *matHeaderCellDef > Ph No </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.phno}} </mat-cell>
+    </ng-container>
+
+<!-- Symbol Column -->
+<ng-container matColumnDef="location">
+  <mat-header-cell *matHeaderCellDef > Location</mat-header-cell>
+  <mat-cell *matCellDef="let element"> {{element.location}} </mat-cell>
+</ng-container>
+
+<!-- Symbol Column -->
+<ng-container matColumnDef="station">
+  <mat-header-cell *matHeaderCellDef > Station </mat-header-cell>
+  <mat-cell *matCellDef="let element"> {{element.station}} </mat-cell>
+</ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>
+  </mat-table>
+</div>
+
+<ng-template #ddoadddialogTemplate>
+  <h1 mat-dialog-title>Add Student</h1>
+  <div mat-dialog-content>
+    <form [formGroup]="ddouserForm" class="example-form">
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>KGID</mat-label>
+        <input matInput formControlName="kgid" />
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>PhNo</mat-label>
+        <input matInput formControlName="phNo" />
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Station</mat-label>
+        <input matInput formControlName="station" />
+      </mat-form-field>
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Location</mat-label>
+        <input matInput formControlName="location" />
+      </mat-form-field>
+
+      <label> Kiran</label>
+      <input type="number" name = "kiran">
+    </form>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button>Cancel</button>
+    <button mat-raised-button color="primary">Add</button>
+  </div>
+</ng-template>
+

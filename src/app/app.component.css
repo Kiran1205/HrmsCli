@@ -1,5 +1,5 @@
 mat-sidenav-container {
-  height: calc(100vh - 65px);
+  height: calc(98vh - 65px) !important;
 }
 .mat-sidenav-content{
     padding: 20px;
