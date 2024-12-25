@@ -28,6 +28,7 @@ export class DdousersComponent  {
   displayedColumns: string[] = [ 'position', 'name', 'kgid', 'phno','location','station','actions'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   ddouserForm: FormGroup;
+  action: any;
 
   constructor(private fb: FormBuilder, public dialog: MatDialog) {
       // Initialize the form
@@ -42,23 +43,35 @@ export class DdousersComponent  {
 
   // Open the "Add Student" dialog
    openAddDialog(dialogTemplateRef : TemplateRef<any>): void {
-      const dialogRef = this.dialog.open(dialogTemplateRef, {
+    this.ddouserForm.reset();
+    this.action = 'New';
+      this.dialog.open(dialogTemplateRef, {
         width: '400px'
-      });
-
-      dialogRef.afterClosed().subscribe(result => {
-        if (result) {
-         // this.students.push(result); // Add the new student to the list
-        }
       });
     }
 
-    cancelDailog(dialogTemplateRef : TemplateRef<any>): void {
+    cancelDailog(): void {
       this.dialog.closeAll();
     }
 
-  editRecord(): void {
-    console.log('edit:');
+  editRecord(editRecord :PeriodicElement,dialogTemplateRef : TemplateRef<any>): void {
+    this.action = 'Update';
+    this.ddouserForm = this.fb.group({
+      name: [editRecord.name, Validators.required],
+      kgid: [editRecord.kgid, [Validators.required]],
+      location:[editRecord.location],
+      station:[editRecord.station],
+      phno:[editRecord.phno]
+    });
+
+    this.dialog.open(dialogTemplateRef, {
+      width: '400px'
+    });
+
+  }
+  saveRecord(): void {
+    console.log(this.ddouserForm.value);
+    this.dialog.closeAll();
   }
 
 }

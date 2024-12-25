@@ -27,7 +27,7 @@
     <ng-container matColumnDef="actions">
       <mat-header-cell *matHeaderCellDef></mat-header-cell>
       <mat-cell *matCellDef="let element">
-        <button mat-icon-button (click)="editRecord()">
+        <button mat-icon-button (click)="editRecord(element,ddoadddialogTemplate)">
           <mat-icon>edit</mat-icon>
         </button>
       </mat-cell>
@@ -75,7 +75,7 @@
 </div>
 
 <ng-template #ddoadddialogTemplate>
-  <h1 mat-dialog-title>Add DDO User</h1>
+  <h1 mat-dialog-title>DDO User Info - {{action}}</h1>
   <div mat-dialog-content>
     <form [formGroup]="ddouserForm" class="example-form">
       <mat-form-field appearance="fill" class="example-full-width">
@@ -89,7 +89,7 @@
       </mat-form-field>
       <mat-form-field appearance="fill" class="example-full-width">
         <mat-label>PhNo</mat-label>
-        <input matInput formControlName="phNo" />
+        <input matInput formControlName="phno" />
       </mat-form-field>
       <mat-form-field appearance="fill" class="example-full-width">
         <mat-label>Station</mat-label>
@@ -102,8 +102,8 @@
     </form>
   </div>
   <div mat-dialog-actions>
-    <button mat-button (click)="cancelDailog(ddoadddialogTemplate)">Cancel</button>
-    <button mat-raised-button color="primary">Add</button>
+    <button mat-fab extended color="primary" (click)="saveRecord()" [disabled]="!ddouserForm.valid">Save</button>
+    <button mat-fab extended (click)="cancelDailog()">Cancel</button>
   </div>
 </ng-template>
 
