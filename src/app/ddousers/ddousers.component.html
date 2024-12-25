@@ -75,10 +75,10 @@
 </div>
 
 <ng-template #ddoadddialogTemplate>
-  <h1 mat-dialog-title>Add Student</h1>
+  <h1 mat-dialog-title>Add DDO User</h1>
   <div mat-dialog-content>
     <form [formGroup]="ddouserForm" class="example-form">
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="fill" class="example-full-width">
         <mat-label>Name</mat-label>
         <input matInput formControlName="name" />
       </mat-form-field>
@@ -99,13 +99,10 @@
         <mat-label>Location</mat-label>
         <input matInput formControlName="location" />
       </mat-form-field>
-
-      <label> Kiran</label>
-      <input type="number" name = "kiran">
     </form>
   </div>
   <div mat-dialog-actions>
-    <button mat-button>Cancel</button>
+    <button mat-button (click)="cancelDailog(ddoadddialogTemplate)">Cancel</button>
     <button mat-raised-button color="primary">Add</button>
   </div>
 </ng-template>

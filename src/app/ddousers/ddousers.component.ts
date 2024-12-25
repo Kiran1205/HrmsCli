@@ -1,7 +1,6 @@
 
 import { Component, TemplateRef} from '@angular/core';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
-import {SelectionModel} from '@angular/cdk/collections';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';  // Optional, for icon buttons
@@ -30,7 +29,7 @@ export class DdousersComponent  {
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   ddouserForm: FormGroup;
 
-  constructor(private fb: FormBuilder,public dialog: MatDialog) {
+  constructor(private fb: FormBuilder, public dialog: MatDialog) {
       // Initialize the form
       this.ddouserForm = this.fb.group({
         name: ['', Validators.required],
@@ -44,7 +43,7 @@ export class DdousersComponent  {
   // Open the "Add Student" dialog
    openAddDialog(dialogTemplateRef : TemplateRef<any>): void {
       const dialogRef = this.dialog.open(dialogTemplateRef, {
-        width: '500px'
+        width: '400px'
       });
 
       dialogRef.afterClosed().subscribe(result => {
@@ -54,6 +53,9 @@ export class DdousersComponent  {
       });
     }
 
+    cancelDailog(dialogTemplateRef : TemplateRef<any>): void {
+      this.dialog.closeAll();
+    }
 
   editRecord(): void {
     console.log('edit:');
