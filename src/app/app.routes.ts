@@ -31,7 +31,7 @@ export const routes: Routes = [
       component: Form16Component
     },
     {
-      path:'itconfiguration',
+      path:'itconfig',
       component:ItconfigurationsComponent
     },
     {

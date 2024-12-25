@@ -38,7 +38,7 @@ export class AppComponent {
     {
       icon:'book',
       label:'IT Configuration',
-      route:'itconfiguration'
+      route:'itconfig'
     },
     {
       icon:'event',
