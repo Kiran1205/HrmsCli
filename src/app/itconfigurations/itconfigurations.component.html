@@ -1,1 +1,57 @@
-<p>itconfigurations works!</p>
+<mat-card>
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+  
+      <!-- Select Column -->
+      <ng-container matColumnDef="select">
+        <mat-header-cell *matHeaderCellDef>
+          <mat-checkbox
+            (change)="toggleSelectAll($event)"
+            [checked]="isAllSelected()"
+            [indeterminate]="isSomeSelected()">
+          </mat-checkbox>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <mat-checkbox
+            (change)="toggleSelection(row)"
+            [checked]="isSelected(row)">
+          </mat-checkbox>
+        </mat-cell>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-form-field appearance="outline" class="editable-cell">
+            <input
+              matInput
+              [(ngModel)]="element.name"
+              (blur)="saveData(element)">
+          </mat-form-field>
+        </mat-cell>
+      </ng-container>
+  
+      <!-- Age Column -->
+      <ng-container matColumnDef="age">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Age </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <mat-form-field appearance="outline" class="editable-cell">
+            <input
+              matInput
+              type="number"
+              [(ngModel)]="element.age"
+              (blur)="saveData(element)">
+          </mat-form-field>
+        </mat-cell>
+      </ng-container>
+  
+      <!-- Header and Rows -->
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row
+        *matRowDef="let row; columns: displayedColumns;"
+        [class.selected-row]="isSelected(row)"
+        (click)="toggleSelection(row)">
+      </mat-row>
+    </mat-table>
+  </mat-card>
+  

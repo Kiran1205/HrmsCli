@@ -11,17 +11,19 @@ const users = [
   { id: 2, name: 'Jane Doe', email: 'jane.doe@example.com' },
 ];
 
-const products = [
-  { id: 101, name: 'Laptop', price: 1200 },
-  { id: 102, name: 'Phone', price: 800 },
+const itconfig = [
+  { id: 202425001, fy: '2024-2025', name: '80C', groupname:'', thresholdvalue: 150000, description: 'Investment made in Equity Linked Saving Schemes, PPF/SPF/RPF, payments made towards Life Insurance Premiums, principal sum of a home loan, SSY, NSC, SCSS, etc.' },
+  { id: 202425002, fy: '2024-2025', name: '80CCC', groupname:'', thresholdvalue: 50000, description: 'Payment made towards pension funds' },
+  { id: 202425003, fy: '2024-2025', name: '80CCD(1)', groupname:'', thresholdvalue: 50000, description: 'Payments made towards Atal Pension Yojana or other pension schemes notified by government' },
+  { id: 202425004, fy: '2024-2025', name: '80CCE', groupname:'', thresholdvalue: 50000, description: 'Total deduction under Section 80C, 80CCC, 80CCD(1)' },
 ];
 
 app.get('/users', (req, res) => {
   res.json(users);
 });
 
-app.get('/products', (req, res) => {
-  res.json(products);
+app.get('/fyitconfig', (req, res) => {
+  res.json(itconfig);
 });
 
 app.listen(3000, () => {
