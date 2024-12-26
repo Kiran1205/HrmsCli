@@ -54,6 +54,11 @@ export class AppComponent {
       icon:'folder',
       label:'Documents',
       route:'documents'
+    },
+    {
+      icon:'folder',
+      label:'Hrms Info',
+      route:'hrms'
     }
   ];
 

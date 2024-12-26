@@ -6,6 +6,7 @@ import { ProvisionalsComponent } from './provisionals/provisionals.component';
 import { ItconfigurationsComponent } from './itconfigurations/itconfigurations.component';
 import { TaxcomputeComponent } from './taxcompute/taxcompute.component';
 import { DocumentsComponent } from './documents/documents.component';
+import { HrmsinfoComponent } from './hrmsinfo/hrmsinfo.component';
 
 
 export const routes: Routes = [
@@ -41,5 +42,9 @@ export const routes: Routes = [
     {
       path:'documents',
       component:DocumentsComponent
+    },
+    {
+      path:'hrms',
+      component :HrmsinfoComponent
     }
 ];
