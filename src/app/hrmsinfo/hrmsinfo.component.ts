@@ -10,7 +10,9 @@ import { MatTableModule } from '@angular/material/table';
 import { MatError } from '@angular/material/form-field';
 import { MatCardFooter } from '@angular/material/card';
 import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-hrmsinfo',
@@ -26,14 +28,19 @@ import { MatSortModule } from '@angular/material/sort';
     MatIconModule,
     MatTableModule,
     MatSort ,
-    MatSortModule
+    MatSortModule,
+    MatPaginatorModule
   ],
 })
 export class HrmsinfoComponent implements AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   ngAfterViewInit() {
-    this.dataSource.sort = this.sort;  // Attach the MatSort to the dataSource
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator; // Attach paginator to the data source
+    this.dataSource.paginator.pageSize = 10;
+    
   }
   @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
   selectedFile: File | null = null;

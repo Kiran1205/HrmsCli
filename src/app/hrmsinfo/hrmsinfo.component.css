@@ -63,10 +63,23 @@
     margin-top: 20px; /* Optional margin for spacing */
     border: 1px solid #ddd; /* Optional border to highlight the scroll area */
     border-radius: 4px;
+    display: block; 
+  }
+
+  .mat-table {
+    min-width: 1200px; /* Set a minimum width to trigger scrolling */
+  width: 100%; /* Allow table to expand fully */
+  table-layout: fixed; /* Set a minimum width for the table to enforce scrolling */
   }
   
-  table {
-    min-width: 1200px; /* Set a minimum width for the table */
+  .mat-header-cell, .mat-cell {
+    white-space: nowrap; /* Prevent table cells from wrapping content */
+  }
+
+  .mat-paginator {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
   }
 
   
