@@ -1,33 +1,49 @@
-/* Move the entire page to the right */
-.file-upload-container {
-    margin: 20px auto;
-    max-width: 600px;
-    text-align: center; /* Align content to the right */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align content to the left */
+    padding: 20px;
+    background-color: #f4f4f4; /* Optional background color */
+    height: 100vh;
+    justify-content: flex-start; /* Move content to the top */
   }
   
-  /* Style for the file upload wrapper */
+  .upload-section {
+    width: 80%; /* Set width to 80% of the page */
+    text-align: left; /* Align content to the right inside the section */
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for better appearance */
+    background-color: #fff; /* Background color for the card */
+    padding: 20px; /* Add padding for spacing inside the card */
+    border-radius: 8px; /* Optional rounded corners */
+  }
+  
+  .table-section {
+    width: 100%;
+  }
+  
   .file-upload-wrapper {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     margin-top: 15px;
   }
+
+  .file-upload-wrapper button {
+    margin-right: 10px; /* Add space between buttons */
+  }
   
-  /* Align upload button a bit to the right */
-  .upload-button-wrapper {
-    margin-left: 20px; /* Move the Upload button to the right to align with Browse File button */
-    display: inline-block;
+  .clear-btn {
+    margin-left: 10px; /* Optional for better separation */
+  }
+
+  .upload-btn {
+    margin-left: 20px; /* Optional for better separation */
   }
   
   .file-name {
     margin-left: 10px;
-    font-weight: 500;
-  }
-  
-  mat-error {
-    color: red;
-    font-size: 13px;
-    margin-top: 10px;
+    font-weight: bold;
   }
   
   .success-message {
@@ -35,4 +51,22 @@
     font-weight: bold;
     margin-top: 10px;
   }
+  
+  mat-error {
+    color: red;
+    margin-top: 10px;
+  }
+
+  .table-wrapper {
+    max-width: 100%; /* Full width of the container */
+    overflow-x: auto; /* Add horizontal scrolling */
+    margin-top: 20px; /* Optional margin for spacing */
+    border: 1px solid #ddd; /* Optional border to highlight the scroll area */
+    border-radius: 4px;
+  }
+  
+  table {
+    min-width: 1200px; /* Set a minimum width for the table */
+  }
+
   

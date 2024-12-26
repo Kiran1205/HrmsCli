@@ -1,10 +1,11 @@
-<div class="file-upload-container">
-    <mat-card>
+<div class="container">
+    <!-- Upload File Section -->
+    <mat-card class="upload-section">
       <mat-card-header>
         <mat-card-title>File Upload</mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <p>Select a file to upload (only CSV or Excel files are supported).</p>
+        <p>Select a file to upload (CSV or Excel).</p>
         <div class="file-upload-wrapper">
           <button mat-raised-button color="primary" (click)="fileInput.click()">
             Browse File
@@ -21,20 +22,109 @@
         <mat-error *ngIf="errorMessage">{{ errorMessage }}</mat-error>
       </mat-card-content>
       <mat-card-actions>
-        <div class="upload-button-wrapper">
-          <button
-            mat-raised-button
-            color="accent"
-            (click)="onUpload()"
-            [disabled]="!selectedFile"
-          >
+        <div class="file-upload-wrapper">
+          <!-- Upload Button -->
+          <button mat-raised-button color="accent" (click)="onUpload()" class="upload-btn" [disabled]="!selectedFile">
             Upload File
+          </button>
+  
+          <!-- Clear Button -->
+          <button mat-raised-button color="warn" (click)="onClear()" class="clear-btn" [disabled]="!selectedFile">
+            Clear File
           </button>
         </div>
       </mat-card-actions>
       <mat-card-footer *ngIf="successMessage" class="success-message">
         {{ successMessage }}
       </mat-card-footer>
+    </mat-card>
+  
+    <!-- Grid/Table Section -->
+    <mat-card class="table-section">
+      <mat-card-header>
+        <mat-card-title>Uploaded Data</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="table-wrapper">
+            <table mat-table [dataSource]="dataSource" matSort  class="mat-elevation-z8">
+                <!-- S No. Column -->
+         <ng-container matColumnDef="sNo">
+           <th mat-header-cell *matHeaderCellDef mat-sort-header> S No. </th>
+           <td mat-cell *matCellDef="let element"> {{ element.sNo }} </td>
+         </ng-container>
+   
+         <!-- DDO Code Column -->
+         <ng-container matColumnDef="ddoCode">
+           <th mat-header-cell *matHeaderCellDef mat-sort-header> DDO Code </th>
+           <td mat-cell *matCellDef="let element"> {{ element.ddoCode }} </td>
+         </ng-container>
+   
+         <!-- KGID No Column -->
+         <ng-container matColumnDef="kgidNo">
+           <th mat-header-cell *matHeaderCellDef> KGID No </th>
+           <td mat-cell *matCellDef="let element"> {{ element.kgidNo }} </td>
+         </ng-container>
+   
+         <!-- From Month Column -->
+         <ng-container matColumnDef="fromMonth">
+           <th mat-header-cell *matHeaderCellDef> From Month </th>
+           <td mat-cell *matCellDef="let element"> {{ element.fromMonth }} </td>
+         </ng-container>
+   
+         <!-- To Month Column -->
+         <ng-container matColumnDef="toMonth">
+           <th mat-header-cell *matHeaderCellDef> To Month </th>
+           <td mat-cell *matCellDef="let element"> {{ element.toMonth }} </td>
+         </ng-container>
+   
+         <!-- Year Column -->
+         <ng-container matColumnDef="year">
+           <th mat-header-cell *matHeaderCellDef> Year </th>
+           <td mat-cell *matCellDef="let element"> {{ element.year }} </td>
+         </ng-container>
+   
+         <!-- Employee Name Column -->
+         <ng-container matColumnDef="employeeName">
+           <th mat-header-cell *matHeaderCellDef mat-sort-header> Employee Name </th>
+           <td mat-cell *matCellDef="let element"> {{ element.employeeName }} </td>
+         </ng-container>
+   
+         <!-- Designation Column -->
+         <ng-container matColumnDef="designation">
+           <th mat-header-cell *matHeaderCellDef> Designation </th>
+           <td mat-cell *matCellDef="let element"> {{ element.designation }} </td>
+         </ng-container>
+   
+         <!-- PAN No Column -->
+         <ng-container matColumnDef="panNo">
+           <th mat-header-cell *matHeaderCellDef> PAN No </th>
+           <td mat-cell *matCellDef="let element"> {{ element.panNo }} </td>
+         </ng-container>
+   
+         <!-- Basic Pay Column -->
+         <ng-container matColumnDef="basicPay">
+           <th mat-header-cell *matHeaderCellDef mat-sort-header> Basic Pay </th>
+           <td mat-cell *matCellDef="let element"> {{ element.basicPay }} </td>
+         </ng-container>
+   
+         <!-- Stagnation Increment Column -->
+         <ng-container matColumnDef="stagnationIncrement">
+           <th mat-header-cell *matHeaderCellDef> Stagnation Increment </th>
+           <td mat-cell *matCellDef="let element"> {{ element.stagnationIncrement }} </td>
+         </ng-container>
+   
+         <!-- DA Column -->
+         <ng-container matColumnDef="da">
+           <th mat-header-cell *matHeaderCellDef> DA </th>
+           <td mat-cell *matCellDef="let element"> {{ element.da }} </td>
+         </ng-container>
+     
+             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+           </table>
+        </div>
+        
+      </mat-card-content>
     </mat-card>
   </div>
   
