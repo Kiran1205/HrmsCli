@@ -1,5 +1,5 @@
 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-  <h2>DDO Users</h2>
+  <h2>DDO Users - List</h2>
 
   <div>
     <!-- Add and Edit buttons -->
@@ -14,6 +14,9 @@
       <mat-cell *matCellDef="let element">
         <button mat-icon-button (click)="editRecord(element,ddoadddialogTemplate)">
           <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="editRecord(element,ddoadddialogTemplate)">
+          <mat-icon>delete</mat-icon>
         </button>
       </mat-cell>
     </ng-container>
@@ -84,10 +87,20 @@
         <mat-label>Location</mat-label>
         <input matInput formControlName="location" />
       </mat-form-field>
+      <div class="input-container">
+      <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password"/>
+      </mat-form-field>
+      <button mat-mini-fab aria-label="Example icon button with a menu icon" (click)="generatePassword()">
+        <mat-icon>password</mat-icon>
+      </button>
+    </div>
     </form>
   </div>
   <div mat-dialog-actions>
-    <button mat-fab extended color="primary" (click)="saveRecord()" [disabled]="!ddouserForm.valid">Save</button>
+    <button mat-fab extended *ngIf="isnewactione" color="primary" (click)="saveRecord()" [disabled]="!ddouserForm.valid">Save</button>
+    <button mat-fab extended *ngIf="!isnewactione" color="primary" (click)="saveRecord()" [disabled]="!ddouserForm.valid">Update</button>
     <button mat-fab extended (click)="cancelDailog()">Cancel</button>
   </div>
 </ng-template>
