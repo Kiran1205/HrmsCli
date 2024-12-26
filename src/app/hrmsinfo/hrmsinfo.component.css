@@ -1,0 +1,38 @@
+/* Move the entire page to the right */
+.file-upload-container {
+    margin: 20px auto;
+    max-width: 600px;
+    text-align: center; /* Align content to the right */
+  }
+  
+  /* Style for the file upload wrapper */
+  .file-upload-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 15px;
+  }
+  
+  /* Align upload button a bit to the right */
+  .upload-button-wrapper {
+    margin-left: 20px; /* Move the Upload button to the right to align with Browse File button */
+    display: inline-block;
+  }
+  
+  .file-name {
+    margin-left: 10px;
+    font-weight: 500;
+  }
+  
+  mat-error {
+    color: red;
+    font-size: 13px;
+    margin-top: 10px;
+  }
+  
+  .success-message {
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  

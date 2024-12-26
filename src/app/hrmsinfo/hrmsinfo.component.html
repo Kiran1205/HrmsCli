@@ -1,1 +1,40 @@
-<p>hrmsinfo works!</p>
+<div class="file-upload-container">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>File Upload</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Select a file to upload (only CSV or Excel files are supported).</p>
+        <div class="file-upload-wrapper">
+          <button mat-raised-button color="primary" (click)="fileInput.click()">
+            Browse File
+          </button>
+          <span class="file-name" *ngIf="selectedFile">{{ selectedFile.name }}</span>
+          <input
+            #fileInput
+            type="file"
+            (change)="onFileSelect($event)"
+            accept=".csv, .xlsx"
+            hidden
+          />
+        </div>
+        <mat-error *ngIf="errorMessage">{{ errorMessage }}</mat-error>
+      </mat-card-content>
+      <mat-card-actions>
+        <div class="upload-button-wrapper">
+          <button
+            mat-raised-button
+            color="accent"
+            (click)="onUpload()"
+            [disabled]="!selectedFile"
+          >
+            Upload File
+          </button>
+        </div>
+      </mat-card-actions>
+      <mat-card-footer *ngIf="successMessage" class="success-message">
+        {{ successMessage }}
+      </mat-card-footer>
+    </mat-card>
+  </div>
+  
