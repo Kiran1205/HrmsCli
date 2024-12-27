@@ -56,7 +56,7 @@
   <mat-cell *matCellDef="let element"> {{element.station}} </mat-cell>
 </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-header-row *matHeaderRowDef="displayedColumns" class="mat-header-cell"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;">
     </mat-row>
   </mat-table>
@@ -102,7 +102,7 @@
   <div mat-dialog-actions>
     <button mat-fab extended *ngIf="isnewactione" color="primary" (click)="saveRecord()" [disabled]="!ddouserForm.valid">Save</button>
     <button mat-fab extended *ngIf="!isnewactione" color="primary" (click)="saveRecord()" [disabled]="!ddouserForm.valid">Update</button>
-    <button mat-fab extended (click)="cancelDailog()">Cancel</button>
+    <button mat-fab extended  (click)="cancelDailog()">Cancel</button>
   </div>
 </ng-template>
 
