@@ -33,7 +33,7 @@
   </ng-template>
 
   <div class="table-container">
-  <mat-table [dataSource]="dataSource" matSort>
+  <mat-table   #table [dataSource]="dataSource" matSort>
     <!-- Define the columns (same as before) -->
     <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
       <mat-header-cell *matHeaderCellDef mat-sort-header>{{ column | titlecase }}</mat-header-cell>
@@ -48,5 +48,3 @@
   <!-- Add paginator below the table -->
   <mat-paginator [length]="dataSource.data.length" [pageSize]="10"></mat-paginator>
 </div>
-
-

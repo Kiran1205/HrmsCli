@@ -30,12 +30,14 @@ import { NgxCsvParser, NgxCSVParserError } from 'ngx-csv-parser';
     MatCardModule,
     MatIconModule,
     MatTableModule,
+    MatSort ,
     MatSortModule,
     MatPaginatorModule,
     NgxCsvParserModule
   ],
 })
 export class HrmsinfoComponent implements AfterViewInit {
+  @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(public dialog: MatDialog, public csvParser: NgxCsvParser) {
@@ -44,6 +46,7 @@ export class HrmsinfoComponent implements AfterViewInit {
     }
 
   ngAfterViewInit() {
+    this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator; // Attach paginator to the data source
     this.dataSource.paginator.pageSize = 10;
   }

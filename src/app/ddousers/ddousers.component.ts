@@ -14,13 +14,16 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-ddousers',
-  imports: [MatTableModule, MatCheckboxModule,MatButtonModule,CommonModule,
+  imports: [MatTableModule,
+    MatCheckboxModule,
+    MatButtonModule,
+    CommonModule,
     MatIconModule,
     MatTooltipModule,
     MatDividerModule,
     MatDialogModule,
-        MatInputModule,
-        ReactiveFormsModule],
+    MatInputModule,
+    ReactiveFormsModule],
   templateUrl: './ddousers.component.html',
   styleUrl: './ddousers.component.css'
 })
@@ -50,7 +53,8 @@ export class DdousersComponent  {
     this.isnewactione = true;
     this.action = 'New';
       this.dialog.open(dialogTemplateRef, {
-        width: '400px'
+        width: '400px',
+        disableClose: true,
       });
     }
     public generatePassword() {

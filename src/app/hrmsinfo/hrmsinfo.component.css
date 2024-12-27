@@ -6,8 +6,9 @@
   border: 1px solid #ccc;/* Optional: add border to the container */
 }
 table {
+  table-layout: fixed;
   width: 100%;
-  table-layout: auto;  /* This will let the columns resize automatically based on the content */
+  border-collapse: collapse;  /* This will let the columns resize automatically based on the content */
 }
 
   .file-upload-wrapper {
@@ -42,4 +43,10 @@ table {
     margin-top: 10px;
     display: flex;
     justify-content: flex-end;
+  }
+  mat-mdc-header-cell {
+    overflow:unset;
+  }
+  mat-cell, mat-header-cell, mat-footer-cell {
+    overflow:unset;
   }
