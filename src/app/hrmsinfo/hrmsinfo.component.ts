@@ -1,4 +1,4 @@
-import { Component, ViewChild, ElementRef,AfterViewInit  } from '@angular/core';
+import { Component, ViewChild, ElementRef,AfterViewInit, TemplateRef  } from '@angular/core';
 import { CommonModule } from '@angular/common'; // Import CommonModule
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -13,6 +13,9 @@ import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+import { NgxCsvParserModule } from 'ngx-csv-parser';
+import { NgxCsvParser, NgxCSVParserError } from 'ngx-csv-parser';
 
 @Component({
   selector: 'app-hrmsinfo',
@@ -27,109 +30,97 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatCardModule,
     MatIconModule,
     MatTableModule,
-    MatSort ,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    NgxCsvParserModule
   ],
 })
 export class HrmsinfoComponent implements AfterViewInit {
-  @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
+  constructor(public dialog: MatDialog, public csvParser: NgxCsvParser) {
+      // Initialize the form
+
+    }
+
   ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator; // Attach paginator to the data source
     this.dataSource.paginator.pageSize = 10;
-    
   }
-  @ViewChild('fileInput') fileInput!: ElementRef<HTMLInputElement>;
+
   selectedFile: File | null = null;
-  errorMessage: string | null = null;
-  successMessage: string | null = null;
+  csvData: any;
   dataSource = new MatTableDataSource<any>([]); // Data source for the grid
   displayedColumns: string[] = [
-    'sNo',
-    'ddoCode',
-    'kgidNo',
-    'fromMonth',
-    'toMonth',
-    'year',
-    'employeeName',
-    'designation',
-    'panNo',
-    'basicPay',
-    'stagnationIncrement',
-    'da'
+   'S No.',
+'DDO Code',
+'KGID No',
+'From Month',
+'To Month',
+'Year',
+'Employee Name',
+'Designation',
+'PAN No',
+'Gross Salary from Current DDO',
+'Gross Salary (Provisional Considered )',
+'Basic Pay',
+'Stagnation Increment',
+'DA',
+'HRA',
+'Uniform Allowance',
+'Independent Charge Allowance',
+'Medical Allowance',
+'Other Allowances',
+'Income Tax from Current DDO',
+'Income Tax from Other DDO',
+'EGIS',
+'PT',
+'LIC',
+'Nps Deduction Amount',
+'KGID',
+'GPF',
+'HBA',
+'Housing Development Finance Corporation',
+'Arogya Bhagya Yojana'
+
   ];
 
-  onFileSelect(event: Event): void {
-    const target = event.target as HTMLInputElement;
-    if (target.files && target.files.length > 0) {
-      const file = target.files[0];
-      const fileType = file.name.split('.').pop()?.toLowerCase();
+  onFileSelected(event: any): void {
+    this.selectedFile = event.target.files[0];
+  }
 
-      if (fileType === 'csv' || fileType === 'xlsx') {
-        this.selectedFile = file;
-        this.errorMessage = null;
-      } else {
-        this.selectedFile = null;
-        this.errorMessage = 'Only CSV or Excel files are supported.';
+
+   openUploadDialog(dialogTemplateRef : TemplateRef<any>): void {
+
+        this.dialog.open(dialogTemplateRef, {
+          width: '350px',
+          height:'180px',
+          disableClose: true,
+        });
       }
-    }
-  }
 
-  onUpload(): void {
-    if (!this.selectedFile) return;
-
-    const reader = new FileReader();
-    reader.onload = () => {
-      const fileContent = reader.result as string;
-      // Example logic to parse CSV and load data into the grid
-      if (this.selectedFile?.name.endsWith('.csv')) {
-        this.parseCsv(fileContent);
-      } else {
-        this.errorMessage = 'Excel parsing is not implemented in this example.';
+    cancelDailog(): void {
+        this.dialog.closeAll();
       }
-    };
-    reader.onerror = () => {
-      this.errorMessage = 'An error occurred while reading the file.';
-    };
-    reader.readAsText(this.selectedFile);
-  }
 
-  parseCsv(csvContent: string): void {
-    const rows = csvContent.split('\n').map(row => row.split(','));
-   
-    // Extract data into a usable format
-    const tableData = rows.slice(1).map(row => ({
-      sNo: row[0]?.trim(),
-      ddoCode: row[1]?.trim(),
-      kgidNo: row[2]?.trim(),
-      fromMonth: row[3]?.trim(),
-      toMonth: row[4]?.trim(),
-      year: row[5]?.trim(),
-      employeeName: row[6]?.trim(),
-      designation: row[7]?.trim(),
-      panNo: row[8]?.trim(),
-      basicPay: row[9]?.trim(),
-      stagnationIncrement: row[10]?.trim(),
-      da: row[11]?.trim(),
-    }));
+    uploadFile(): void {
+        if (!this.selectedFile) {
+          console.error('No file selected!');
+          return;
+        }
 
-    this.dataSource.data = tableData;
-    this.successMessage = 'File uploaded and data loaded successfully!';
-    this.errorMessage = null;
-  }
-
-  onClear(): void {
-    this.selectedFile = null;
-    this.errorMessage = null;
-    this.successMessage = null;
-
-    // Reset the file input field
-    if (this.fileInput) {
-      this.fileInput.nativeElement.value = ''; // Reset the input's value
+        this.csvParser.parse(this.selectedFile, { header: true, delimiter: ',' }).subscribe({
+          next: (result: any) => {
+            this.csvData = result;
+            this.dataSource.data = this.csvData;
+            console.log(this.csvData);
+            this.dialog.closeAll();
+            this.selectedFile = null;
+          },
+          error: (error: NgxCSVParserError) => {
+            console.error('Error parsing CSV: ', error);
+          },
+      });
     }
-    console.log('File selection cleared.');
-  }
+
 }
