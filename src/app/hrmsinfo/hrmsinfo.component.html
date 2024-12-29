@@ -30,39 +30,45 @@
     </div>
 
   </div>
-  </ng-template>
+</ng-template>
 
-  <div class="table-container">
-    <mat-table #table [dataSource]="dataSource" matSort>
+<section class="hrms-container mat-elevation-z8" tabindex="0">
+ <!--  <div class="table-container"> -->
+    <mat-form-field>
+      <mat-label>Filter</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Employee Name" #input>
+    </mat-form-field>
+
+    <table mat-table  [dataSource]="dataSource" matSort>
       
       <!-- Column: S No. -->
       <ng-container matColumnDef="S No.">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>S No.</mat-header-cell>
-        <mat-cell *matCellDef="let row">{{ row['S No.'] }}</mat-cell>
+        <mat-header-cell *matHeaderCellDef class="mat-column-sno" mat-sort-header>S No.</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="mat-column-sno">{{ row['S No.'] }}</mat-cell>
       </ng-container>
   
       <!-- Column: DDO Code -->
       <ng-container matColumnDef="DDO Code">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>DDO Code</mat-header-cell>
-        <mat-cell *matCellDef="let row">{{ row['DDO Code'] }}</mat-cell>
+        <mat-header-cell *matHeaderCellDef class="mat-column-ddo" mat-sort-header>DDO Code</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="mat-column-ddo" >{{ row['DDO Code'] }}</mat-cell>
       </ng-container>
   
       <!-- Column: KGID No -->
       <ng-container matColumnDef="KGID No">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>KGID No</mat-header-cell>
-        <mat-cell *matCellDef="let row">{{ row['KGID No'] }}</mat-cell>
+        <mat-header-cell *matHeaderCellDef class="mat-column-kgid" mat-sort-header>KGID No</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="mat-column-kgid">{{ row['KGID No'] }}</mat-cell>
       </ng-container>
   
       <!-- Column: From Month -->
       <ng-container matColumnDef="From Month">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>From Month</mat-header-cell>
-        <mat-cell *matCellDef="let row">{{ row['From Month'] }}</mat-cell>
+        <mat-header-cell *matHeaderCellDef class="mat-column-frommonth" mat-sort-header>From Month</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="mat-column-frommonth">{{ row['From Month'] }}</mat-cell>
       </ng-container>
   
       <!-- Column: To Month -->
       <ng-container matColumnDef="To Month">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>To Month</mat-header-cell>
-        <mat-cell *matCellDef="let row">{{ row['To Month'] }}</mat-cell>
+        <mat-header-cell *matHeaderCellDef class="mat-column-tomonth" mat-sort-header>To Month</mat-header-cell>
+        <mat-cell *matCellDef="let row" class="mat-column-tomonth" >{{ row['To Month'] }}</mat-cell>
       </ng-container>
   
       <!-- Column: Year -->
@@ -221,8 +227,9 @@
     <!-- Data rows -->
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
-  </mat-table>
+   </table>
 
   <!-- Paginator -->
-  <mat-paginator [length]="dataSource.data.length" [pageSize]="10"></mat-paginator>
-</div>
+  <mat-paginator [length]="dataSource.data.length" [pageSize]="50"></mat-paginator>
+ <!--  </div> -->
+</section>

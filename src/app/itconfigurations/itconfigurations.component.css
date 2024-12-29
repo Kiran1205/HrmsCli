@@ -1,12 +1,30 @@
-.mat-row {
-    cursor: pointer;
-  }
-  
-  .selected-row {
-    background-color: rgba(0, 0, 255, 0.1); /* Light blue */
-  }
-  
-  .editable-cell {
-    width: 100%;
-  }
-  
+/* Section Header Styling */
+mat-expansion-panel-header {
+  background-color: #add8e6; /* Light blue */
+  color: #000; /* Black text for contrast */
+  font-weight: bold;
+  border-bottom: 1px solid #87ceeb; /* Slightly darker border */
+}
+
+/* Field Container Styling */
+.section-fields {
+  background-color: #f0f8ff; /* Even lighter blue for the field background */
+  padding: 16px;
+  border-radius: 8px; /* Rounded corners for the field container */
+  border: 1px solid #add8e6; /* Light blue border */
+}
+
+/* Form Field Styling */
+.mat-form-field {
+  background-color: #e6f7ff; /* Very light blue background for fields */
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+  background-color: #e6f7ff; /* Field fill color */
+}
+
+.mat-form-field-appearance-fill .mat-form-field-outline {
+  color: #87ceeb; /* Outline color for fields */
+}

@@ -48,7 +48,7 @@ export class HrmsinfoComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator; // Attach paginator to the data source
-    this.dataSource.paginator.pageSize = 10;
+    this.dataSource.paginator.pageSize = 50;
   }
 
   selectedFile: File | null = null;
@@ -90,6 +90,11 @@ export class HrmsinfoComponent implements AfterViewInit {
 
   onFileSelected(event: any): void {
     this.selectedFile = event.target.files[0];
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
 

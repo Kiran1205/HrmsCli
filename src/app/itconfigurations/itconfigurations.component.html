@@ -1,19 +1,75 @@
-<mat-tree #tree [dataSource]="financialyears" [childrenAccessor]="childrenAccessor">
-    <!-- This is the tree node template for leaf nodes -->
-    <mat-tree-node *matTreeNodeDef="let node" matTreeNodePadding>
-      <!-- use a disabled button to provide padding for tree leaf -->
-      <button mat-icon-button disabled></button>
-      {{node.name}}
-    </mat-tree-node>
-    <!-- This is the tree node template for expandable nodes -->
-    <mat-tree-node *matTreeNodeDef="let node;when: hasChild" matTreeNodePadding matTreeNodeToggle
-                   [cdkTreeNodeTypeaheadLabel]="node.name">
-      <button mat-icon-button matTreeNodeToggle
-              [attr.aria-label]="'Toggle ' + node.name">
-        <mat-icon class="mat-icon-rtl-mirror">
-          {{tree.isExpanded(node) ? 'expand_more' : 'chevron_right'}}
-        </mat-icon>
-      </button>
-      <b>{{node.name}}</b>
-    </mat-tree-node>
-  </mat-tree>
+<mat-accordion>
+  <!-- Section 1 -->
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        80CC
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="section-fields">
+      <div class="row">
+        <mat-form-field class="field" appearance="fill">
+          <mat-label>Field 1</mat-label>
+          <input matInput />
+        </mat-form-field>
+        <mat-form-field class="field" appearance="fill">
+          <mat-label>Field 2</mat-label>
+          <input matInput />
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="field" appearance="fill">
+          <mat-label>Field 3</mat-label>
+          <input matInput />
+        </mat-form-field>
+        <mat-form-field class="field" appearance="fill">
+          <mat-label>Field 4</mat-label>
+          <input matInput />
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="field" appearance="fill">
+          <mat-label>Field 5</mat-label>
+          <input matInput />
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-expansion-panel>
+
+  <!-- Section 2 -->
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        80CCD
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div class="section-fields">
+      <div class="row">
+        <mat-form-field class="field" appearance="fill">
+          <mat-label>Field 1</mat-label>
+          <input matInput />
+        </mat-form-field>
+        <mat-form-field class="field" appearance="fill">
+          <mat-label>Field 2</mat-label>
+          <input matInput />
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="field" appearance="fill">
+          <mat-label>Field 3</mat-label>
+          <input matInput />
+        </mat-form-field>
+        <mat-form-field class="field" appearance="fill">
+          <mat-label>Field 4</mat-label>
+          <input matInput />
+        </mat-form-field>
+      </div>
+      <div class="row">
+        <mat-form-field class="field" appearance="fill">
+          <mat-label>Field 5</mat-label>
+          <input matInput />
+        </mat-form-field>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

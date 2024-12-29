@@ -13,6 +13,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import {FinancialYear} from '../models/financialyear';
 import { ITConfigSection } from '../models/itconfigsection';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 export interface UserData {
   id: number;
@@ -89,6 +90,7 @@ const mockData: FinancialYear[] = [
     MatFormFieldModule,
     MatInputModule,
     MatPaginatorModule,
+    MatExpansionModule,
     MatTreeModule, MatButtonModule, MatIconModule],
   templateUrl: './itconfigurations.component.html',
   styleUrl: './itconfigurations.component.css',

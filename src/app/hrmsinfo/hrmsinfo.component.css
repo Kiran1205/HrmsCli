@@ -23,46 +23,41 @@
     margin-top: 20px;/* Optional for better separation */
   }
 
-  .table-container {
-    max-height: 450px;  /* Set maximum height for vertical scrolling */
-    overflow-y: auto;   /* Enable vertical scrolling when rows overflow */
-    overflow-x: auto;   /* Enable horizontal scrolling when columns overflow */
-    width: 100%;        /* Ensure the container takes full width */
-    border: 1px solid #ccc; /* Optional: border for better visibility */
+  .hrms-container {
+    height: 500px;
+    width: 100%;
+    max-width: 100%;
+    overflow: auto;
   }
   
   .mat-table {
-    width: 100%;  /* Ensure the table takes up the full width of the container */
-    table-layout: auto;  /* Allows columns to adjust based on content */
+    width: 800px;
   }
   
-  .mat-header-cell, .mat-cell {
-    text-align: left;
-    padding: 16px;  /* Default Material padding */
-    box-sizing: border-box;
-    overflow: unset; /* Hide overflow */
-    text-overflow: ellipsis;  /* Truncate content with ellipsis */
-    white-space: nowrap;  /* Prevent text wrapping */
+  td.mat-column-star {
+    width: 20px;
+    padding-right: 8px;
   }
   
-  .mat-header-row, .mat-row {
-    display: table-row;  /* Align rows as per table layout */
-    width: 100%;
+  th.mat-column-position, td.mat-column-position {
+    padding-left: 8px;
   }
   
-  .mat-header-cell {
-    font-weight: bold;
-    background-color: #f5f5f5;  /* Optional: add background color to header */
+  .mat-mdc-table-sticky-border-elem-right {
+    border-left: 1px solid #e0e0e0;
   }
   
-  .mat-cell {
-    border-bottom: 1px solid #ccc;  /* Add border between rows */
+  .mat-mdc-table-sticky-border-elem-left {
+    border-right: 1px solid #e0e0e0;
   }
-  
- 
-  
+
   .mat-paginator {
     margin-top: 10px;
     display: flex;
     justify-content: flex-end;
+  }
+
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
   }
