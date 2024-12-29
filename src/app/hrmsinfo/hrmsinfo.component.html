@@ -33,18 +33,196 @@
   </ng-template>
 
   <div class="table-container">
-  <mat-table   #table [dataSource]="dataSource" matSort>
-    <!-- Define the columns (same as before) -->
-    <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>{{ column | titlecase }}</mat-header-cell>
-      <mat-cell *matCellDef="let row">{{ row[column] }}</mat-cell>
+    <mat-table #table [dataSource]="dataSource" matSort>
+      
+      <!-- Column: S No. -->
+      <ng-container matColumnDef="S No.">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>S No.</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row['S No.'] }}</mat-cell>
+      </ng-container>
+  
+      <!-- Column: DDO Code -->
+      <ng-container matColumnDef="DDO Code">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>DDO Code</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row['DDO Code'] }}</mat-cell>
+      </ng-container>
+  
+      <!-- Column: KGID No -->
+      <ng-container matColumnDef="KGID No">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>KGID No</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row['KGID No'] }}</mat-cell>
+      </ng-container>
+  
+      <!-- Column: From Month -->
+      <ng-container matColumnDef="From Month">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>From Month</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row['From Month'] }}</mat-cell>
+      </ng-container>
+  
+      <!-- Column: To Month -->
+      <ng-container matColumnDef="To Month">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>To Month</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row['To Month'] }}</mat-cell>
+      </ng-container>
+  
+      <!-- Column: Year -->
+      <ng-container matColumnDef="Year">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Year</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row['Year'] }}</mat-cell>
+      </ng-container>
+  
+      <!-- Column: Employee Name -->
+      <ng-container matColumnDef="Employee Name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header  [ngStyle]="{ width: '400px' }">Employee Name</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row['Employee Name'] }}</mat-cell>
+      </ng-container>
+  
+      <!-- Column: Designation -->
+      <ng-container matColumnDef="Designation">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Designation</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row['Designation'] }}</mat-cell>
+      </ng-container>
+  
+      <!-- Column: PAN No -->
+      <ng-container matColumnDef="PAN No">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>PAN No</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row['PAN No'] }}</mat-cell>
+      </ng-container>
+  
+      <!-- Column: Gross Salary from Current DDO -->
+      <ng-container matColumnDef="Gross Salary from Current DDO">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Gross Salary from Current DDO</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row['Gross Salary from Current DDO'] }}</mat-cell>
+      </ng-container>
+  
+      <!-- Column: Gross Salary (Provisional Considered) -->
+      <ng-container matColumnDef="Gross Salary (Provisional Considered )">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Gross Salary (Provisional Considered )</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row['Gross Salary (Provisional Considered )'] }}</mat-cell>
+      </ng-container>
+  
+      <!-- Column: Basic Pay -->
+      <ng-container matColumnDef="Basic Pay">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Basic Pay</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row['Basic Pay'] }}</mat-cell>
+      </ng-container>
+  
+      <!-- Column: Stagnation Increment -->
+      <ng-container matColumnDef="Stagnation Increment">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Stagnation Increment</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row['Stagnation Increment'] }}</mat-cell>
+      </ng-container>
+  
+      <!-- Column: DA -->
+      <ng-container matColumnDef="DA">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>DA</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row['DA'] }}</mat-cell>
+      </ng-container>
+  
+      <!-- Column: HRA -->
+      <ng-container matColumnDef="HRA">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>HRA</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row['HRA'] }}</mat-cell>
+      </ng-container>
+  
+      <!-- Column: Uniform Allowance -->
+      <ng-container matColumnDef="Uniform Allowance">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Uniform Allowance</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row['Uniform Allowance'] }}</mat-cell>
+      </ng-container>
+  
+      <!-- Column: Independent Charge Allowance -->
+      <ng-container matColumnDef="Independent Charge Allowance">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Independent Charge Allowance</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row['Independent Charge Allowance'] }}</mat-cell>
+      </ng-container>
+  
+      <!-- Column: Medical Allowance -->
+      <ng-container matColumnDef="Medical Allowance">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Medical Allowance</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row['Medical Allowance'] }}</mat-cell>
+      </ng-container>
+  
+      <!-- Column: Other Allowances -->
+      <ng-container matColumnDef="Other Allowances">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Other Allowances</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row['Other Allowances'] }}</mat-cell>
+      </ng-container>
+  
+      <!-- Column: Income Tax from Current DDO -->
+      <ng-container matColumnDef="Income Tax from Current DDO">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Income Tax from Current DDO</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row['Income Tax from Current DDO'] }}</mat-cell>
+      </ng-container>
+  
+      <!-- Column: Income Tax from Other DDO -->
+      <ng-container matColumnDef="Income Tax from Other DDO">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Income Tax from Other DDO</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row['Income Tax from Other DDO'] }}</mat-cell>
+      </ng-container>
+  
+      <!-- Column: EGIS -->
+      <ng-container matColumnDef="EGIS">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>EGIS</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row['EGIS'] }}</mat-cell>
+      </ng-container>
+  
+      <!-- Column: PT -->
+      <ng-container matColumnDef="PT">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>PT</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row['PT'] }}</mat-cell>
+      </ng-container>
+  
+      <!-- Column: LIC -->
+      <ng-container matColumnDef="LIC">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>LIC</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row['LIC'] }}</mat-cell>
+      </ng-container>
+  
+      <!-- Column: Nps Deduction Amount -->
+      <ng-container matColumnDef="Nps Deduction Amount">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Nps Deduction Amount</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row['Nps Deduction Amount'] }}</mat-cell>
+      </ng-container>
+  
+      <!-- Column: KGID -->
+      <ng-container matColumnDef="KGID">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>KGID</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row['KGID'] }}</mat-cell>
+      </ng-container>
+  
+      <!-- Column: GPF -->
+      <ng-container matColumnDef="GPF">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>GPF</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row['GPF'] }}</mat-cell>
+      </ng-container>
+  
+      <!-- Column: HBA -->
+      <ng-container matColumnDef="HBA">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>HBA</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{ row['HBA'] }}</mat-cell>
+      </ng-container>
+
+        <!-- Column: Housing Development Finance Corporation -->
+    <ng-container matColumnDef="Housing Development Finance Corporation">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Housing Development Finance Corporation</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row['Housing Development Finance Corporation'] }}</mat-cell>
     </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns" class="mat-header-cell"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;">
-    </mat-row>
+    <!-- Column: Arogya Bhagya Yojana -->
+    <ng-container matColumnDef="Arogya Bhagya Yojana">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Arogya Bhagya Yojana</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{ row['Arogya Bhagya Yojana'] }}</mat-cell>
+    </ng-container>
+
+    <!-- Header row -->
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+    <!-- Data rows -->
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
   </mat-table>
 
-  <!-- Add paginator below the table -->
+  <!-- Paginator -->
   <mat-paginator [length]="dataSource.data.length" [pageSize]="10"></mat-paginator>
 </div>
