@@ -92,6 +92,11 @@ export class HrmsinfoComponent implements AfterViewInit {
     this.selectedFile = event.target.files[0];
   }
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
 
    openUploadDialog(dialogTemplateRef : TemplateRef<any>): void {
 

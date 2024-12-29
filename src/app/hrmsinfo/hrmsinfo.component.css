@@ -1,15 +1,3 @@
-.table-container {
-  max-height: 450px;  /* Set the maximum height for the table container */
-  overflow-y: auto;
-  overflow-x: auto;
-  width: 100%;  /* Enable vertical scrolling when content overflows */
-  border: 1px solid #ccc;/* Optional: add border to the container */
-}
-table {
-  table-layout: fixed;
-  width: 100%;
-  border-collapse: collapse;  /* This will let the columns resize automatically based on the content */
-}
 
   .file-upload-wrapper {
     display: flex;
@@ -34,9 +22,36 @@ table {
     margin-top: 20px;/* Optional for better separation */
   }
 
-  .mat-header-cell, .mat-cell {
-    white-space: nowrap;
-    background-color:#d6dbdf;
+  .hrms-container {
+    height: 500px;
+    width: 100%;
+    max-width: 100%;
+    overflow: auto;
+  }
+
+  .mat-table {
+    width: 800px;
+  }
+  
+  .table {
+    width: 100%;
+  }
+  
+  td.mat-column-star {
+    width: 20px;
+    padding-right: 8px;
+  }
+  
+  th.mat-column-position, td.mat-column-position {
+    padding-left: 8px;
+  }
+  
+  .mat-mdc-table-sticky-border-elem-right {
+    border-left: 1px solid #e0e0e0;
+  }
+  
+  .mat-mdc-table-sticky-border-elem-left {
+    border-right: 1px solid #e0e0e0;
   }
 
   .mat-paginator {
@@ -44,9 +59,9 @@ table {
     display: flex;
     justify-content: flex-end;
   }
-  mat-mdc-header-cell {
-    overflow:unset;
-  }
-  mat-cell, mat-header-cell, mat-footer-cell {
-    overflow:unset;
+
+
+  .mat-mdc-form-field {
+    font-size: 14px;
+    width: 100%;
   }
